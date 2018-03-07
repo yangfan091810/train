@@ -6,14 +6,18 @@ import (
 	"time"
 )
 const N = 100
+const K = 10000000
 func main(){
 	var b [N]int
 	for i := 0; i < N; i++ {
 		b[i] = i+1
 	}
 	var x int = 2
+	var r float64
 	t := time.Now().Unix()
-	r := f1(N, b, x)
+	for j := 0; j < K; j++ {
+		r = f(N, b, x)
+	}
 	t1 := time.Now().Unix()
 	fmt.Println(t1 - t)
 	fmt.Println(r)
