@@ -8,7 +8,8 @@ import (
 
 func main(){
 	var list = [8]int{4,-3,5,-2,-1,2,6,-2}
-	max := fenzhi(list, 0, 7)
+	//max := fenzhi(list, 0, 7)
+	max := zaixian(list, 8)
 	fmt.Println(max)
 }
 
@@ -73,15 +74,20 @@ func fenzhi( A [8]int, left int, right int) int {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+//在线处理法
+func zaixian( A [8]int, N int ) int {
+	var ThisSum , MaxSum int
+	var i int
+	ThisSum = 0 
+	MaxSum = 0
+	for i = 0; i < N; i++ {
+		ThisSum += A[i]
+		if ThisSum > MaxSum {
+			MaxSum = ThisSum
+		} else if ThisSum < 0 {
+			ThisSum = 0
+		}
+	}
+	return MaxSum
+}
 
